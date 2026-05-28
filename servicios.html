@@ -58,10 +58,254 @@
     </nav>
 
     <!-- CONTENIDO DE LA PAGINA -->
-    <main class="container my-5">
-      <h1>Bienvenido a Veerubber Motos</h1>
+```html
+<!-- CONTENIDO DE LA PAGINA -->
+<main class="container my-5">
 
-    </main>
+  <!-- TITULO -->
+  <section class="text-center mb-5">
+    <h1 class="fw-bold display-4">Servicios Especializados</h1>
+
+    <p class="text-muted fs-5">
+      En Veerubber Motos ofrecemos mantenimiento, reparación y venta de
+      repuestos para motocicletas con atención profesional y garantía de calidad.
+    </p>
+  </section>
+
+  <!-- INFORMACION -->
+  <section class="row text-center mb-5">
+
+    <div class="col-md-4">
+      <div class="p-4 border rounded shadow-sm h-100">
+        <h3 class="fw-bold text-dark">+5 Años</h3>
+
+        <p class="text-muted">
+          De experiencia en mantenimiento y reparación de motocicletas.
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="p-4 border rounded shadow-sm h-100">
+        <h3 class="fw-bold text-dark">Repuestos Originales</h3>
+
+        <p class="text-muted">
+          Trabajamos con piezas y accesorios de alta calidad.
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="p-4 border rounded shadow-sm h-100">
+        <h3 class="fw-bold text-dark">Atención Profesional</h3>
+
+        <p class="text-muted">
+          Técnicos capacitados para brindarte el mejor servicio.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CARDS -->
+  <div class="row g-4">
+
+    <!-- SERVICIO 1 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card border-0 shadow-lg h-100">
+
+        <img
+          src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f"
+          class="card-img-top"
+          alt="Cambio de aceite"
+          style="height: 250px; object-fit: cover;"
+        >
+
+        <div class="card-body text-center">
+
+          <h4 class="fw-bold mb-3">
+            Cambio de Aceite
+          </h4>
+
+          <p class="text-muted">
+            Utilizamos aceites de alta calidad para mejorar el rendimiento
+            y prolongar la vida útil del motor.
+          </p>
+
+          <button
+            class="btn btn-dark px-4"
+            data-bs-toggle="modal"
+            data-bs-target="#modalAceite"
+          >
+            Más información
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICIO 2 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card border-0 shadow-lg h-100">
+
+        <img
+          src="https://images.unsplash.com/photo-1558981806-ec527fa84c39"
+          class="card-img-top"
+          alt="Reparación de motor"
+          style="height: 250px; object-fit: cover;"
+        >
+
+        <div class="card-body text-center">
+
+          <h4 class="fw-bold mb-3">
+            Reparación de Motor
+          </h4>
+
+          <p class="text-muted">
+            Diagnóstico especializado y reparación profesional para garantizar
+            el mejor funcionamiento de tu motocicleta.
+          </p>
+
+          <button
+            class="btn btn-dark px-4"
+            data-bs-toggle="modal"
+            data-bs-target="#modalMotor"
+          >
+            Más información
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICIO 3 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card border-0 shadow-lg h-100">
+
+        <img
+          src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3"
+          class="card-img-top"
+          alt="Venta de repuestos"
+          style="height: 250px; object-fit: cover;"
+        >
+
+        <div class="card-body text-center">
+
+          <h4 class="fw-bold mb-3">
+            Venta de Repuestos
+          </h4>
+
+          <p class="text-muted">
+            Contamos con repuestos originales y accesorios para diferentes
+            marcas y modelos de motocicletas.
+          </p>
+
+          <button
+            class="btn btn-dark px-4"
+            data-bs-toggle="modal"
+            data-bs-target="#modalRepuestos"
+          >
+            Más información
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</main>
+
+<!-- MODAL ACEITE -->
+<div class="modal fade" id="modalAceite" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title">Cambio de Aceite</h5>
+
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+
+        <ul>
+          <li>Cambio de aceite premium</li>
+          <li>Revisión de filtros</li>
+          <li>Chequeo general del motor</li>
+          <li>Inspección preventiva</li>
+        </ul>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODAL MOTOR -->
+<div class="modal fade" id="modalMotor" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title">Reparación de Motor</h5>
+
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+
+        <ul>
+          <li>Diagnóstico técnico especializado</li>
+          <li>Reparación de fallas mecánicas</li>
+          <li>Mantenimiento preventivo</li>
+          <li>Ajuste y calibración del motor</li>
+        </ul>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODAL REPUESTOS -->
+<div class="modal fade" id="modalRepuestos" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title">Venta de Repuestos</h5>
+
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+
+        <ul>
+          <li>Repuestos originales</li>
+          <li>Accesorios para motocicletas</li>
+          <li>Baterías y llantas</li>
+          <li>Piezas para diferentes marcas</li>
+        </ul>
+
+      </div>
+
+    </div>
+  </div>
+</div>
 
     <!-- FOOTER -->
     <footer class="bg-dark text-white py-4 mt-5">
