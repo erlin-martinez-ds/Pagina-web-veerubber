@@ -1,82 +1,94 @@
-const botones = document.querySelectorAll(".agregar-carrito");
+// =====================
+// CARRITO
+// =====================
+
 const listaCarrito = document.getElementById("lista-carrito");
 const totalElemento = document.getElementById("total");
+const panelCarrito = document.getElementById("panelCarrito");
 
 let carrito = [];
-let total = 0;
 
-botones.forEach(boton => {
-
-boton.addEventListener("click", () => {
-
-const nombre = boton.dataset.nombre;
-const precio = parseInt(boton.dataset.precio);
-
-carrito.push({
-nombre,
-precio
+// Abrir / cerrar panel
+document.getElementById("abrirCarrito").addEventListener("click", () => {
+  panelCarrito.classList.add("abierto");
 });
 
-actualizarCarrito();
-
+document.getElementById("cerrarCarrito").addEventListener("click", () => {
+  panelCarrito.classList.remove("abierto");
 });
 
+// Agregar al carrito
+document.querySelectorAll(".agregar-carrito").forEach(boton => {
+  boton.addEventListener("click", () => {
+    const cantidad = parseInt(
+      boton.closest(".producto-info").querySelector(".cantidad-input").value
+    ) || 1;
+
+    carrito.push({
+      nombre: boton.dataset.nombre,
+      precio: parseInt(boton.dataset.precio),
+      cantidad
+    });
+    renderCarrito();
+  });
 });
 
-function actualizarCarrito(){
+function renderCarrito() {
+  if (carrito.length === 0) {
+    listaCarrito.innerHTML = '<p class="carrito-vacio">No hay productos</p>';
+    totalElemento.textContent = "$0";
+    return;
+  }
 
-listaCarrito.innerHTML = "";
+  const total = carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0);
 
-total = 0;
+  listaCarrito.innerHTML = carrito.map((producto, index) => `
+    <div class="carrito-item">
+      <h5>${producto.nombre}</h5>
+      <p>Cantidad: ${producto.cantidad}</p>
+      <p>$${(producto.precio * producto.cantidad).toLocaleString("es-CO")}</p>
+      <button class="eliminar" onclick="eliminarProducto(${index})">Eliminar</button>
+    </div>
+  `).join("");
 
-if(carrito.length === 0){
-
-listaCarrito.innerHTML = `
-<p class="carrito-vacio">
-No hay productos
-</p>
-`;
-
-totalElemento.textContent = "$0";
-
-return;
-
+  totalElemento.textContent = "$" + total.toLocaleString("es-CO");
 }
 
-carrito.forEach((producto,index) => {
-
-total += producto.precio;
-
-listaCarrito.innerHTML += `
-
-<div class="carrito-item">
-
-<h5>
-${producto.nombre}
-</h5>
-
-<p>
-$${producto.precio}
-</p>
-
-<button class="eliminar" onclick="eliminarProducto(${index})">
-Eliminar
-</button>
-
-</div>
-
-`;
-
-});
-
-totalElemento.textContent = "$" + total;
-
+function eliminarProducto(index) {
+  carrito.splice(index, 1);
+  renderCarrito();
 }
 
-function eliminarProducto(index){
+// =====================
+// FILTROS Y BÚSQUEDA
+// =====================
 
-carrito.splice(index,1);
+const filtroBtns = document.querySelectorAll(".filtro-btn");
+const productos = document.querySelectorAll(".producto");
+const buscador = document.getElementById("buscador");
 
-actualizarCarrito();
+let categoriaActual = "TODOS";
 
+filtroBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    filtroBtns.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    categoriaActual = btn.dataset.categoria;
+    filtrarProductos();
+  });
+});
+
+buscador.addEventListener("input", filtrarProductos);
+
+function filtrarProductos() {
+  const texto = buscador.value.toLowerCase();
+
+  productos.forEach(producto => {
+    const coincideCategoria =
+      categoriaActual === "TODOS" || producto.dataset.categoria === categoriaActual;
+    const coincideBusqueda =
+      producto.querySelector("h3").textContent.toLowerCase().includes(texto);
+
+    producto.classList.toggle("oculto", !(coincideCategoria && coincideBusqueda));
+  });
 }
