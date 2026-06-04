@@ -57,45 +57,456 @@
       </div>
     </nav>
 
-    <!-- CONTENIDO DE LA PAGINA -->
-    <main class="container my-5">
-      <h1>Bienvenido a Veerubber Motos</h1>
-    </main>
     <!-- HERO -->
-    <section class="hero py-5">
-      <div class="container">
-        <div class="row align-items-center">
-          <!-- Texto -->
-          <div class="col-lg-6 text-center text-lg-start">
-            <h1 class="display-4 fw-bold mb-3">Veerubber Motos</h1>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container h-100">
+        <div class="row align-items-center justify-content-center h-100">
+          <div class="col-lg-7 text-center text-lg-start">
+            <div class="hero-copy py-5">
+              <h1 class="display-4 fw-bold mb-3 text-white">Veerubber Motos</h1>
 
-            <p class="lead mb-4">
-              Especialistas en mantenimiento, reparación y venta de accesorios
-              para motocicletas en Mocoa, Putumayo.
-            </p>
+              <p class="lead mb-4 text-white opacity-85">
+                Especialistas en mantenimiento, reparación y venta de accesorios
+                para motocicletas en Mocoa, Putumayo.
+              </p>
 
-            <div
-              class="d-flex gap-3 justify-content-center justify-content-lg-start"
-            >
-              <a href="citas.html" class="btn btn-warning btn-lg">
-                Agendar Cita
-              </a>
+              <div
+                class="d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap"
+              >
+                <a href="citas.html" class="btn btn-warning btn-lg">
+                  Agendar Cita
+                </a>
 
-              <a href="servicios.html" class="btn btn-outline-dark btn-lg">
-                Ver Servicios
-              </a>
+                <a href="servicios.html" class="btn btn-outline-light btn-lg">
+                  Ver Servicios
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CARRUSEL -->
+    <section class="container my-3">
+      <div
+        id="carouselVeerubber"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselVeerubber"
+            data-bs-slide-to="0"
+            class="active"
+          ></button>
+
+          <button
+            type="button"
+            data-bs-target="#carouselVeerubber"
+            data-bs-slide-to="1"
+          ></button>
+
+          <button
+            type="button"
+            data-bs-target="#carouselVeerubber"
+            data-bs-slide-to="2"
+          ></button>
+        </div>
+
+        <!-- Slides -->
+        <div class="carousel-inner rounded shadow">
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <img
+              src="assets/img/mantenimiento.png"
+              class="d-block w-100 carousel-img"
+              alt="Mantenimiento"
+            />
+
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Mantenimiento Preventivo</h3>
+
+              <p>Cuida el rendimiento y la seguridad de tu motocicleta.</p>
             </div>
           </div>
 
-          <!-- Imagen -->
-          <div class="col-lg-6 text-center mt-5 mt-lg-0">
+          <!-- Slide 2 -->
+          <div class="carousel-item">
             <img
-              src="assets/img/portada.webp"
-              alt="Motocicleta en mantenimiento"
-              class="img-fluid"
+              src="assets/img/reparacion.png"
+              class="d-block w-100 carousel-img"
+              alt="Reparación"
             />
+
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Reparación Especializada</h3>
+
+              <p>Soluciones mecánicas y eléctricas para tu moto.</p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item">
+            <img
+              src="assets/img/accesorios.png"
+              class="d-block w-100 carousel-img"
+              alt="Accesorios"
+            />
+
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Accesorios para Motociclistas</h3>
+
+              <p>Encuentra cascos, guantes, luces LED y más.</p>
+            </div>
           </div>
         </div>
+
+        <!-- Botón anterior -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselVeerubber"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <!-- Botón siguiente -->
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselVeerubber"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </section>
+    <!-- SERVICIOS DESTACADOS -->
+    <section class="container my-5">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Servicios Destacados</h2>
+
+        <p class="text-muted">
+          Soluciones profesionales para mantener tu motocicleta en las mejores
+          condiciones.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Servicio 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm card-accesorios">
+            <div class="card-body text-center">
+              <img
+                src="assets/img/iconomantenimieto.png"
+                alt="Icono mantenimiento"
+                class="img-fluid mb-3"
+                style="max-height: 100px"
+              />
+
+              <h4 class="card-title">Mantenimiento Preventivo</h4>
+
+              <p class="card-text">
+                Realizamos cambios de aceite, revisión general y ajustes para
+                prolongar la vida útil de tu moto.
+              </p>
+
+              <a href="servicios.html" class="btn btn-warning"> Ver más </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Servicio 2 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm card-accesorios">
+            <div class="card-body text-center">
+              <img
+                src="assets/img/iconoreparacion.png"
+                alt="Icono reparación"
+                class="img-fluid mb-3"
+                style="max-height: 100px"
+              />
+
+              <h4 class="card-title">Reparación Especializada</h4>
+
+              <p class="card-text">
+                Solucionamos problemas mecánicos y eléctricos con personal
+                capacitado y herramientas adecuadas.
+              </p>
+
+              <a href="servicios.html" class="btn btn-warning"> Ver más </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Servicio 3 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm card-accesorios">
+            <div class="card-body text-center">
+              <img
+                src="assets/img/iconodiagnostico.png"
+                alt="Icono diagnóstico"
+                class="img-fluid mb-3"
+                style="max-height: 100px"
+              />
+
+              <h4 class="card-title">Diagnóstico General</h4>
+
+              <p class="card-text">
+                Detectamos fallas y evaluamos el estado de tu motocicleta para
+                garantizar un funcionamiento seguro.
+              </p>
+
+              <a href="servicios.html" class="btn btn-warning"> Ver más </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ACCESORIOS DESTACADOS -->
+    <section class="container my-5">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Accesorios Destacados</h2>
+
+        <p class="text-muted">
+          Encuentra los mejores accesorios para mejorar la seguridad, comodidad
+          y estilo de tu motocicleta.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Cascos -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm card-accesorios">
+            <div class="card-body text-center">
+              <img
+                src="assets/img/cascos.png"
+                alt="Cascos"
+                class="img-fluid mb-3"
+                style="max-height: 100px"
+              />
+
+              <h4 class="card-title">Cascos</h4>
+
+              <p class="card-text">
+                Cascos certificados para garantizar tu protección en cada
+                recorrido.
+              </p>
+
+              <a href="accesorios.html" class="btn btn-warning"> Ver más </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guantes -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm card-accesorios">
+            <div class="card-body text-center">
+              <img
+                src="assets/img/guantes.png"
+                alt="Guantes"
+                class="img-fluid mb-3"
+                style="max-height: 100px"
+              />
+
+              <h4 class="card-title">Guantes</h4>
+
+              <p class="card-text">
+                Mayor comodidad, protección y agarre para tus trayectos diarios.
+              </p>
+
+              <a href="accesorios.html" class="btn btn-warning"> Ver más </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Luces -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm card-accesorios">
+            <div class="card-body text-center">
+              <img
+                src="assets/img/luces.png"
+                alt="Luces LED"
+                class="img-fluid mb-3"
+                style="max-height: 100px"
+              />
+
+              <h4 class="card-title">Luces LED</h4>
+
+              <p class="card-text">
+                Mejora la visibilidad y el estilo de tu motocicleta con
+                iluminación LED.
+              </p>
+
+              <a href="accesorios.html" class="btn btn-warning"> Ver más </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ¿POR QUÉ ELEGIRNOS? -->
+    <section class="bg-light py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold">¿Por qué elegir Veerubber Motos?</h2>
+
+          <p class="text-muted">
+            Comprometidos con la calidad y la satisfacción de nuestros clientes.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Beneficio 1 -->
+          <div class="col-md-3">
+            <div class="text-center">
+              <img
+                src="assets/img/tecnicosespecializados.png"
+                alt="Técnicos especializados"
+                class="img-fluid mb-3"
+                style="max-height: 100px"
+              />
+
+              <h5>Técnicos Especializados</h5>
+
+              <p>
+                Personal capacitado para realizar diagnósticos y reparaciones
+                profesionales.
+              </p>
+            </div>
+          </div>
+
+          <!-- Beneficio 2 -->
+          <div class="col-md-3">
+            <div class="text-center">
+              <img
+                src="assets/img/repuestosdecalidad.png"
+                alt="Repuestos de calidad"
+                class="img-fluid mb-3"
+                style="max-height: 100px"
+              />
+
+              <h5>Repuestos de Calidad</h5>
+
+              <p>
+                Utilizamos productos confiables para garantizar el mejor
+                rendimiento.
+              </p>
+            </div>
+          </div>
+
+          <!-- Beneficio 3 -->
+          <div class="col-md-3">
+            <div class="text-center">
+              <img
+                src="assets/img/atencionrapida.png"
+                alt="Atención rápida"
+                class="img-fluid mb-3"
+                style="max-height: 100px"
+              />
+
+              <h5>Atención Rápida</h5>
+
+              <p>
+                Optimizamos los tiempos de entrega para que vuelvas a la
+                carretera pronto.
+              </p>
+            </div>
+          </div>
+
+          <!-- Beneficio 4 -->
+          <div class="col-md-3">
+            <div class="text-center">
+              <img
+                src="assets/img/garantiadeservicios.png"
+                alt="Garantía en servicios"
+                class="img-fluid mb-3"
+                style="max-height: 100px"
+              />
+
+              <h5>Garantía en Servicios</h5>
+
+              <p>Respaldamos nuestro trabajo con garantía y compromiso.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- TESTIMONIOS -->
+    <section class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Lo que dicen nuestros clientes</h2>
+
+        <p class="text-muted">
+          La satisfacción de nuestros clientes es nuestra mejor carta de
+          presentación.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Testimonio 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+              <h4>⭐⭐⭐⭐⭐</h4>
+
+              <p class="card-text">
+                Excelente atención y servicio. Mi motocicleta quedó en perfectas
+                condiciones.
+              </p>
+
+              <h6 class="mt-3">Carlos Gómez</h6>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonio 2 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+              <h4>⭐⭐⭐⭐⭐</h4>
+
+              <p class="card-text">
+                Muy buenos precios en accesorios y atención personalizada.
+              </p>
+
+              <h6 class="mt-3">Laura Pérez</h6>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonio 3 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+              <h4>⭐⭐⭐⭐⭐</h4>
+
+              <p class="card-text">
+                Servicio rápido y de calidad. Recomiendo totalmente el taller.
+              </p>
+
+              <h6 class="mt-3">Andrés Rojas</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CTA -->
+    <section class="cta-section py-5">
+      <div class="container text-center">
+        <h2 class="fw-bold mb-3">¿Tu motocicleta necesita mantenimiento?</h2>
+
+        <p class="lead mb-4">
+          Agenda tu cita hoy mismo y recibe atención profesional para mantener
+          tu moto en las mejores condiciones.
+        </p>
+
+        <a href="citas.html" class="btn btn-warning btn-lg px-5">
+          Agendar Cita
+        </a>
       </div>
     </section>
 

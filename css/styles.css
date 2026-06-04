@@ -1,9 +1,46 @@
 body {
   font-family: Arial, sans-serif;
+  margin: 0;
 }
 
 .hero {
-  min-height: 80vh;
+  min-height: 85vh;
+  background-image: url("assets/img/portada.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.hero .btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+}
+
+.hero .btn-outline-light:hover {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.hero .opacity-85 {
+  opacity: 0.85;
 }
 
 .card:hover {
@@ -64,4 +101,59 @@ body {
 .footer-social svg {
   width: 20px;
   height: 20px;
+}
+
+.carousel-img {
+  height: 500px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  padding: 15px;
+}
+.card {
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+/* Estilos para tarjetas de accesorios */
+.card-accesorios {
+  border: 2px solid #ffc107;
+  background: linear-gradient(135deg, #ffffff 0%, #fffbf0 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.15);
+  transition: all 0.3s ease;
+}
+
+.card-accesorios:hover {
+  border-color: #ff9800;
+  background: linear-gradient(135deg, #fffbf0 0%, #fff8e1 100%);
+  box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+  transform: translateY(-10px);
+}
+
+.card-accesorios .card-title {
+  color: #ff9800;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.card-accesorios .card-text {
+  color: #555;
+  font-size: 0.95rem;
+}
+.cta-section {
+  background-color: #212529;
+  color: white;
+}
+
+.cta-section .btn {
+  font-weight: 600;
 }
