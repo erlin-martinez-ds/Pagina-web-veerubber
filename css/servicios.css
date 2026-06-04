@@ -1,0 +1,169 @@
+/* =========================
+   SERVICIOS
+========================= */
+
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+}
+
+.form-check {
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.form-check:hover {
+  background-color: #f8f9fa;
+}
+
+#resultadoServicios {
+  min-height: 100px;
+}
+
+.alert-success {
+  border-left: 5px solid #198754;
+}
+
+.alert-warning {
+  border-left: 5px solid #ffc107;
+}
+
+/* Tarjetas de información */
+.shadow-sm:hover {
+  transform: scale(1.03);
+  transition: 0.3s;
+}
+
+/* Botones */
+.btn-success {
+  padding: 10px 25px;
+  font-weight: 600;
+}
+
+.btn-dark:hover {
+  opacity: 0.9;
+}
+
+/* Sección de solicitud */
+.card-header h3 {
+  margin: 0;
+}
+.table-hover tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+#resultadoServicios .card {
+  animation: aparecer .4s ease;
+}
+
+@keyframes aparecer {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+.form-control:focus {
+  box-shadow: 0 0 8px rgba(25,135,84,.4);
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}
+.btn-outline-dark {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 15px;
+}
+
+.collapse .card {
+  border-left: 5px solid #198754;
+}
+
+.collapse ul li {
+  margin-bottom: 8px;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+
+.hero {
+  min-height: 80vh;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #111111;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.footer-social a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.footer-social a:nth-child(1) {
+  background: #1877f2;
+  color: #ffffff;
+}
+
+.footer-social a:nth-child(2) {
+  background: radial-gradient(
+    circle at 30% 30%,
+    #fccc63,
+    #f77737 35%,
+    #c22b91 65%,
+    #4f5bd5
+  );
+  color: #ffffff;
+}
+
+.footer-social a:nth-child(3) {
+  background: #25d366;
+  color: #ffffff;
+}
+
+.footer-social svg {
+  width: 20px;
+  height: 20px;
+}
