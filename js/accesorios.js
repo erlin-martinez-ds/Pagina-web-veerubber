@@ -18,16 +18,17 @@ document.getElementById("cerrarCarrito").addEventListener("click", () => {
 });
 
 // Agregar al carrito
-document.querySelectorAll(".agregar-carrito").forEach(boton => {
+document.querySelectorAll(".agregar-carrito").forEach((boton) => {
   boton.addEventListener("click", () => {
-    const cantidad = parseInt(
-      boton.closest(".producto-info").querySelector(".cantidad-input").value
-    ) || 1;
+    const cantidad =
+      parseInt(
+        boton.closest(".producto-info").querySelector(".cantidad-input").value,
+      ) || 1;
 
     carrito.push({
       nombre: boton.dataset.nombre,
       precio: parseInt(boton.dataset.precio),
-      cantidad
+      cantidad,
     });
     renderCarrito();
   });
@@ -42,14 +43,18 @@ function renderCarrito() {
 
   const total = carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0);
 
-  listaCarrito.innerHTML = carrito.map((producto, index) => `
+  listaCarrito.innerHTML = carrito
+    .map(
+      (producto, index) => `
     <div class="carrito-item">
       <h5>${producto.nombre}</h5>
       <p>Cantidad: ${producto.cantidad}</p>
       <p>$${(producto.precio * producto.cantidad).toLocaleString("es-CO")}</p>
       <button class="eliminar" onclick="eliminarProducto(${index})">Eliminar</button>
     </div>
-  `).join("");
+  `,
+    )
+    .join("");
 
   totalElemento.textContent = "$" + total.toLocaleString("es-CO");
 }
@@ -69,10 +74,18 @@ const buscador = document.getElementById("buscador");
 
 let categoriaActual = "TODOS";
 
-filtroBtns.forEach(btn => {
+filtroBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    filtroBtns.forEach(b => b.classList.remove("active"));
+    filtroBtns.forEach((b) => {
+      b.classList.remove("active");
+      b.classList.remove("btn-warning");
+      b.classList.add("btn-light");
+    });
+
     btn.classList.add("active");
+    btn.classList.remove("btn-light");
+    btn.classList.add("btn-warning");
+
     categoriaActual = btn.dataset.categoria;
     filtrarProductos();
   });
@@ -83,12 +96,18 @@ buscador.addEventListener("input", filtrarProductos);
 function filtrarProductos() {
   const texto = buscador.value.toLowerCase();
 
-  productos.forEach(producto => {
+  productos.forEach((producto) => {
     const coincideCategoria =
-      categoriaActual === "TODOS" || producto.dataset.categoria === categoriaActual;
-    const coincideBusqueda =
-      producto.querySelector("h3").textContent.toLowerCase().includes(texto);
+      categoriaActual === "TODOS" ||
+      producto.dataset.categoria === categoriaActual;
+    const coincideBusqueda = producto
+      .querySelector("h3")
+      .textContent.toLowerCase()
+      .includes(texto);
 
-    producto.classList.toggle("oculto", !(coincideCategoria && coincideBusqueda));
+    producto.classList.toggle(
+      "oculto",
+      !(coincideCategoria && coincideBusqueda),
+    );
   });
 }
