@@ -1,125 +1,768 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veerubber Motos | Accesorios</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/accesorios.css">
+</head>
+<body>
 
-    <title>Veerubber Motos</title>
+<!-- BOTÓN CARRITO FLOTANTE -->
+<button id="abrirCarrito" class="carrito-flotante-btn">🛒 Carrito</button>
 
-    <!-- Bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+<!-- PANEL CARRITO -->
+<div id="panelCarrito" class="panel-carrito">
+  <div class="panel-header">
+    <h3>Carrito</h3>
+    <button id="cerrarCarrito">✖</button>
+  </div>
+  <div id="lista-carrito">
+    <p class="carrito-vacio">No hay productos</p>
+  </div>
+  <div class="total">
+    <h4>Total:</h4>
+    <span id="total">$0</span>
+  </div>
+</div>
 
-    <!-- CSS propio -->
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">Veerubber Motos</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="accesorios.html">Accesorios</a></li>
+        <li class="nav-item"><a class="nav-link" href="citas.html">Agendar Cita</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-  <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html"> Veerubber Motos </a>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Accesorios premium<br>para motocicletas</h1>
+    <p>Encuentra cascos, llantas, aceites y accesorios de las mejores marcas.</p>
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#menu"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <div class="categorias-container">
+      <button class="btn btn-danger filtro-btn active" data-categoria="TODOS">Todos</button>
+      <button class="btn btn-danger filtro-btn" data-categoria="CASCO">Cascos</button>
+      <button class="btn btn-danger filtro-btn" data-categoria="ACEITE">Aceites</button>
+      <button class="btn btn-danger filtro-btn" data-categoria="LLANTA">Llantas</button>
+      <button class="btn btn-danger filtro-btn" data-categoria="REPUESTO">Repuestos</button>
+    </div><br>
 
-        <div class="collapse navbar-collapse" id="menu">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html"> Inicio </a>
-            </li>
+    <div class="buscador-container">
+      <input type="text" id="buscador" class="form-control" placeholder="Buscar producto...">
+    </div>
+  </div>
+</section>
 
-            <li class="nav-item">
-              <a class="nav-link" href="servicios.html"> Servicios </a>
-            </li>
+<!-- PRODUCTOS -->
+<section class="container py-5">
+  <div class="titulo">
+    <h2>Productos destacados</h2>
+    <p>Accesorios disponibles en nuestro taller</p>
+  </div>
 
-            <li class="nav-item">
-              <a class="nav-link" href="accesorios.html"> Accesorios </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="citas.html"> Agendar Cita </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="contacto.html"> Contacto </a>
-            </li>
-          </ul>
+  <div class="row g-4 justify-content-center">
+<!-- cascos -->
+    <div class="col-lg-4 producto" data-categoria="CASCO">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/SHAFT PRO 610.webp" alt="Casco SHAFT PRO 610" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">CASCO</span>
+          <h3>SHAFT PRO 610</h3>
+          <p>Casco integral certificado DOT.</p>
+          <div class="precio">$450.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="SHAFT PRO 610" data-precio="450000">
+            Agregar al carrito
+          </button>
         </div>
       </div>
-    </nav>
-
-    <!-- CONTENIDO DE LA PAGINA -->
-    <main class="container my-5">
-      <h1>Bienvenido a Veerubber Motos</h1>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-dark text-white py-4 mt-5">
-      <div class="container text-center">
-        <h5>Veerubber Motos</h5>
-
-        <p>Mocoa - Putumayo - Calle 13 # 8A-16 Barrio Olimpico</p>
-
-        <p>Teléfono: 313 220 58 30</p>
-
-        <p>Correo: veerubber@gmail.com</p>
-
-        <div class="footer-social">
-          <a
-            href="https://www.facebook.com/login/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-          >
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M22 12C22 6.48 17.52 2 12 2S2 6.48 2 12c0 4.84 3.44 8.84 8 9.8v-6.9H8.5v-2.9H10V9.5c0-1.5.9-2.4 2.3-2.4.7 0 1.45.1 1.45.1v1.6h-.8c-.8 0-1 .5-1 1v1.2h1.7l-.3 2.9h-1.4V22c4.56-.96 8-4.96 8-9.8z"
-              />
-            </svg>
-          </a>
-          <a
-            href="https://www.instagram.com/accounts/login/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm4.75-.88a1.12 1.12 0 1 1 0 2.25 1.12 1.12 0 0 1 0-2.25z"
-              />
-            </svg>
-          </a>
-          <a
-            href="https://web.whatsapp.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
-          >
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M12 2a10 10 0 0 0-8.7 15.4L2 22l4.7-1.2A10 10 0 1 0 12 2zm0 18.5a8.3 8.3 0 0 1-4.2-1.1l-.3-.2-2.8.7.7-2.7-.2-.3A8.3 8.3 0 1 1 12 20.5zm4.1-5.7c-.2-.1-1.2-.6-1.4-.7-.2-.1-.4-.1-.6.1-.2.2-.7.7-.8.8-.2.2-.3.2-.5.1-.5-.2-1.1-.4-2-.9-.7-.5-1.2-1.1-1.4-1.3-.2-.2-.4-.4-.3-.7.1-.2.4-.5.5-.6.1-.2.2-.2.4-.2.1 0 .2 0 .4 0 .1 0 .2-.1.3-.1.1-.1.4-.1.6-.1.2 0 .5 0 .8.1.2.1.5.2.8.3.3.1.6.3.8.5.2.2.5.2.9.1.3-.1.9-.4 1.1-.6.2-.1.4-.3.4-.6 0-.2 0-.5-.1-.7-.1-.2-.6-1.4-.8-1.9-.2-.4-.3-.4-.6-.4-.2 0-.4 0-.6 0-.2 0-.6.1-.9.3-.3.2-.8.8-.8 1.8 0 1 .8 2 1 2.2.1.2 1.7 2.6 4.2 3.7.6.2 1 .3 1.4.2.4 0 1.3-.5 1.5-1.1.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.3z"
-              />
-            </svg>
-          </a>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="CASCO">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/VEGA HELMETS.jpg" alt="Casco VEGA HELMETS" class="img-fluid">
         </div>
-
-        <p class="mb-0">© 2026 Veerubber Motos</p>
+        <div class="producto-info">
+          <span class="badge-producto">CASCO</span>
+          <h3>VEGA HELMETS</h3>
+          <p>Casco integral con visor ahumado.</p>
+          <div class="precio">$320.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="VEGA HELMETS" data-precio="320000">
+            Agregar al carrito
+          </button>
+        </div>
       </div>
-    </footer>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="CASCO">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/LS2 FULL FACE.jpg" alt="Casco LS2 FULL FACE" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">CASCO</span>
+          <h3>LS2 FULL FACE</h3>
+          <p>Casco modular profesional con ventilación.</p>
+          <div class="precio">$380.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="LS2 FULL FACE" data-precio="380000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="CASCO">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/SHOEI GT-AIR.jpg" alt="Casco SHOEI GT-AIR" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">CASCO</span>
+          <h3>SHOEI GT-AIR</h3>
+          <p>Casco deportivo con tecnología anti-vaho.</p>
+          <div class="precio">$520.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="SHOEI GT-AIR" data-precio="520000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="CASCO">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/HJC RPHA 90.jpg" alt="Casco HJC RPHA 90" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">CASCO</span>
+          <h3>HJC RPHA 90</h3>
+          <p>Casco touring con peso ligero y cómodo.</p>
+          <div class="precio">$390.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="HJC RPHA 90" data-precio="390000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="CASCO">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/ARAI QUANTUM.jpg" alt="Casco ARAI QUANTUM" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">CASCO</span>
+          <h3>ARAI QUANTUM</h3>
+          <p>Casco premium con certificación ECE 22.06.</p>
+          <div class="precio">$480.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="ARAI QUANTUM" data-precio="480000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="CASCO">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/NOLAN N95.jpg" alt="Casco NOLAN N95" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">CASCO</span>
+          <h3>NOLAN N95</h3>
+          <p>Casco modular con sistema de regulación.</p>
+          <div class="precio">$410.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="NOLAN N95" data-precio="410000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- aceite -->
+    <div class="col-lg-4 producto" data-categoria="ACEITE">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/descarga.jpg" alt="Aceite Motul 5100" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">ACEITE</span>
+          <h3>Motul 5100</h3>
+          <p>Aceite sintético premium para motos.</p>
+          <div class="precio">$68.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Motul 5100" data-precio="68000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="ACEITE">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Castrol GTX 15W-40.jpg" alt="Aceite Castrol GTX" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">ACEITE</span>
+          <h3>Castrol GTX 15W-40</h3>
+          <p>Aceite mineral con protección superior.</p>
+          <div class="precio">$52.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Castrol GTX 15W-40" data-precio="52000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="ACEITE">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Shell Helix Ultra.jpg" alt="Aceite Shell Helix" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">ACEITE</span>
+          <h3>Shell Helix Ultra</h3>
+          <p>Aceite de síntesis completa de alto desempeño.</p>
+          <div class="precio">$75.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Shell Helix Ultra" data-precio="75000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="ACEITE">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Yamalube 20W-40.jpg" alt="Aceite Yamalube" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">ACEITE</span>
+          <h3>Yamalube 20W-40</h3>
+          <p>Aceite original Yamaha para motos deportivas.</p>
+          <div class="precio">$48.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Yamalube 20W-40" data-precio="48000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="ACEITE">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Mobil Super 10W-40.jpg" alt="Aceite Mobil Super" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">ACEITE</span>
+          <h3>Mobil Super 10W-40</h3>
+          <p>Aceite multigrado con aditivos protectores.</p>
+          <div class="precio">$61.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Mobil Super 10W-40" data-precio="61000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="ACEITE">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Pennzoil Platinum.jpg" alt="Aceite Pennzoil Platinum" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">ACEITE</span>
+          <h3>Pennzoil Platinum</h3>
+          <p>Aceite totalmente sintético con flujo superior.</p>
+          <div class="precio">$85.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Pennzoil Platinum" data-precio="85000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="ACEITE">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Bardahl XTC C60.jpg" alt="Aceite Bardahl XTC" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">ACEITE</span>
+          <h3>Bardahl XTC C60</h3>
+          <p>Aceite tecnología americana con anti-desgaste.</p>
+          <div class="precio">$72.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Bardahl XTC C60" data-precio="72000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="ACEITE">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Chevron Delo 400.jpg" alt="Aceite Chevron Delo" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">ACEITE</span>
+          <h3>Chevron Delo 400</h3>
+          <p>Aceite de rendimiento extremo para motocicletas.</p>
+          <div class="precio">$55.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Chevron Delo 400" data-precio="55000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- llantas -->
+    <div class="col-lg-4 producto" data-categoria="LLANTA">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Michelin Pilot.jpg" alt="Llanta Michelin Pilot" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">LLANTA</span>
+          <h3>Michelin Pilot</h3>
+          <p>Llanta de alta adherencia y durabilidad.</p>
+          <div class="precio">$320.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Michelin Pilot" data-precio="320000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="LLANTA">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Pirelli Diablo Rosso.jpg" alt="Llanta Pirelli Diablo" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">LLANTA</span>
+          <h3>Pirelli Diablo Rosso</h3>
+          <p>Llanta deportiva con máximo agarre en seco.</p>
+          <div class="precio">$380.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Pirelli Diablo Rosso" data-precio="380000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="LLANTA">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Bridgestone Battlax.jpg" alt="Llanta Bridgestone Battlax" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">LLANTA</span>
+          <h3>Bridgestone Battlax</h3>
+          <p>Llanta de gran resistencia y confort.</p>
+          <div class="precio">$350.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Bridgestone Battlax" data-precio="350000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="LLANTA">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Dunlop Sportmax.jpg" alt="Llanta Dunlop Sportmax" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">LLANTA</span>
+          <h3>Dunlop Sportmax</h3>
+          <p>Llanta de rendimiento para uso mixto.</p>
+          <div class="precio">$310.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Dunlop Sportmax" data-precio="310000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="LLANTA">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Continental ContiSportAttack.jpg" alt="Llanta Continental ContiSport" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">LLANTA</span>
+          <h3>Continental ContiSportAttack</h3>
+          <p>Llanta de rendimiento extremo en carretera.</p>
+          <div class="precio">$365.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Continental ContiSportAttack" data-precio="365000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="LLANTA">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Metzeler Roadtec Z8.jpg" alt="Llanta Metzeler Roadtec" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">LLANTA</span>
+          <h3>Metzeler Roadtec Z8</h3>
+          <p>Llanta de touring con tecnología avanzada.</p>
+          <div class="precio">$340.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Metzeler Roadtec Z8" data-precio="340000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="LLANTA">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Avon Cobra AV91.jpg" alt="Llanta Avon Cobra" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">LLANTA</span>
+          <h3>Avon Cobra AV91</h3>
+          <p>Llanta cruiser de gran durabilidad.</p>
+          <div class="precio">$295.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Avon Cobra AV91" data-precio="295000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="LLANTA">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Kumho Ecsta SPT.jpg" alt="Llanta Kumho Ecsta" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">LLANTA</span>
+          <h3>Kumho Ecsta SPT</h3>
+          <p>Llanta de mejor relación precio-rendimiento.</p>
+          <div class="precio">$280.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Kumho Ecsta SPT" data-precio="280000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="col-lg-4 producto" data-categoria="REPUESTO">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Kit de Arrastre RK.jpg" alt="Kit de Arrastre RK" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">REPUESTO</span>
+          <h3>Kit de Arrastre RK</h3>
+          <p>Kit de cadena, piñón y corona de alta resistencia.</p>
+          <div class="precio">$180.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Kit de Arrastre RK" data-precio="180000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="REPUESTO">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Pastillas de Freno Delantero.jpg" alt="Pastillas de Freno" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">REPUESTO</span>
+          <h3>Pastillas de Freno Delantero</h3>
+          <p>Pastillas de freno cerámicas de alto rendimiento.</p>
+          <div class="precio">$85.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Pastillas de Freno Delantero" data-precio="85000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="REPUESTO">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Filtro de Aire K&N.jpg" alt="Filtro de Aire" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">REPUESTO</span>
+          <h3>Filtro de Aire K&N</h3>
+          <p>Filtro de aire deportivo reutilizable.</p>
+          <div class="precio">$35.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Filtro de Aire K&N" data-precio="35000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="REPUESTO">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Bujía NGK Iridium.jpg" alt="Bujía NGK" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">REPUESTO</span>
+          <h3>Bujía NGK Iridium</h3>
+          <p>Bujía de iridio para mejor encendido y durabilidad.</p>
+          <div class="precio">$28.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Bujía NGK Iridium" data-precio="28000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="REPUESTO">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Correa de Distribución.jpg" alt="Correa de Distribución" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">REPUESTO</span>
+          <h3>Correa de Distribución</h3>
+          <p>Correa de distribución de precisión y larga vida.</p>
+          <div class="precio">$125.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Correa de Distribución" data-precio="125000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="REPUESTO">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Pastillas de Freno Trasero.jpg" alt="Pastillas de Freno Trasero" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">REPUESTO</span>
+          <h3>Pastillas de Freno Trasero</h3>
+          <p>Pastillas traseras con excelente frenado.</p>
+          <div class="precio">$72.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Pastillas de Freno Trasero" data-precio="72000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="REPUESTO">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Kit Clutch Completo.jpg" alt="Kit Clutch Completo" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">REPUESTO</span>
+          <h3>Kit Clutch Completo</h3>
+          <p>Kit de embrague con disco y resortes.</p>
+          <div class="precio">$220.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Kit Clutch Completo" data-precio="220000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 producto" data-categoria="REPUESTO">
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="imagen/Radiador de Aluminio.jpg" alt="Radiador de Aluminio" class="img-fluid">
+        </div>
+        <div class="producto-info">
+          <span class="badge-producto">REPUESTO</span>
+          <h3>Radiador de Aluminio</h3>
+          <p>Radiador de aluminio con mejor enfriamiento.</p>
+          <div class="precio">$280.000</div>
+          <div class="cantidad-control">
+              <button class="cantidad-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                 <input type="number" class="cantidad-input" value="1" min="1" max="99">
+              <button class="cantidad-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <button class="btn btn-danger w-100 agregar-carrito" data-nombre="Radiador de Aluminio" data-precio="280000">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
 
-    <!-- JS propio -->
-    <script src="js/main.js"></script>
-  </body>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white py-4 mt-5">
+  <div class="container text-center">
+    <h5>Veerubber Motos</h5>
+    <p>Mocoa - Putumayo - Calle 13 # 8A-16 Barrio Olimpico</p>
+    <p>Teléfono: 313 220 58 30</p>
+    <p>Correo: veerubber@gmail.com</p>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/login/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M22 12C22 6.48 17.52 2 12 2S2 6.48 2 12c0 4.84 3.44 8.84 8 9.8v-6.9H8.5v-2.9H10V9.5c0-1.5.9-2.4 2.3-2.4.7 0 1.45.1 1.45.1v1.6h-.8c-.8 0-1 .5-1 1v1.2h1.7l-.3 2.9h-1.4V22c4.56-.96 8-4.96 8-9.8z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm4.75-.88a1.12 1.12 0 1 1 0 2.25 1.12 1.12 0 0 1 0-2.25z"/>
+        </svg>
+      </a>
+      <a href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2a10 10 0 0 0-8.7 15.4L2 22l4.7-1.2A10 10 0 1 0 12 2zm0 18.5a8.3 8.3 0 0 1-4.2-1.1l-.3-.2-2.8.7.7-2.7-.2-.3A8.3 8.3 0 1 1 12 20.5zm4.1-5.7c-.2-.1-1.2-.6-1.4-.7-.2-.1-.4-.1-.6.1-.2.2-.7.7-.8.8-.2.2-.3.2-.5.1-.5-.2-1.1-.4-2-.9-.7-.5-1.2-1.1-1.4-1.3-.2-.2-.4-.4-.3-.7.1-.2.4-.5.5-.6.1-.2.2-.2.4-.2.1 0 .2 0 .4 0 .1 0 .2-.1.3-.1.1-.1.4-.1.6-.1.2 0 .5 0 .8.1.2.1.5.2.8.3.3.1.6.3.8.5.2.2.5.2.9.1.3-.1.9-.4 1.1-.6.2-.1.4-.3.4-.6 0-.2 0-.5-.1-.7-.1-.2-.6-1.4-.8-1.9-.2-.4-.3-.4-.6-.4-.2 0-.4 0-.6 0-.2 0-.6.1-.9.3-.3.2-.8.8-.8 1.8 0 1 .8 2 1 2.2.1.2 1.7 2.6 4.2 3.7.6.2 1 .3 1.4.2.4 0 1.3-.5 1.5-1.1.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.3z"/>
+        </svg>
+      </a>
+    </div>
+    <p class="mb-0">© 2026 Veerubber Motos</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/accesorios.js"></script>
+</body>
 </html>
