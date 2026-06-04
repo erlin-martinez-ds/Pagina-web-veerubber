@@ -58,9 +58,135 @@
     </nav>
 
     <!-- CONTENIDO DE LA PAGINA -->
-    <main class="container my-5">
-      <h1>Bienvenido a Veerubber Motos</h1>
-    </main>
+<main class="container my-5">
+  <div class="cita-container">
+    <div class="text-center mb-4">
+      <h1>Agendar Cita</h1>
+      <p>
+        Programa tu cita para mantenimiento, revisión o reparación de tu moto.
+      </p>
+    </div>
+
+    <form id="formCita" class="cita-form">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Nombre Completo</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            required
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Documento</label>
+          <input
+            type="number"
+            class="form-control"
+            id="documento"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Teléfono</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="telefono"
+            required
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Correo Electrónico</label>
+          <input
+            type="email"
+            class="form-control"
+            id="correo"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Servicio Requerido</label>
+        <select class="form-select" id="servicio" required>
+          <option value="">Seleccione un servicio</option>
+          <option>Cambio de Aceite</option>
+          <option>Reparación de Motor</option>
+          <option>Venta de Repuestos</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Marca de la Moto</label>
+          <input
+            type="text"
+            class="form-control"
+            id="marca"
+            required
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Modelo</label>
+          <input
+            type="text"
+            class="form-control"
+            id="modelo"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Fecha</label>
+          <input
+            type="date"
+            class="form-control"
+            id="fecha"
+            required
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Hora</label>
+          <input
+            type="time"
+            class="form-control"
+            id="hora"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Observaciones</label>
+        <textarea
+          class="form-control"
+          id="observaciones"
+          rows="4"
+        ></textarea>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-warning btn-lg">
+          Agendar Cita
+        </button>
+      </div>
+    </form>
+
+    <div id="mensaje" class="alert alert-success mt-4 d-none">
+      ✅ Su cita ha sido registrada correctamente.
+    </div>
+  </div>
+</main>
 
     <!-- FOOTER -->
     <footer class="bg-dark text-white py-4 mt-5">

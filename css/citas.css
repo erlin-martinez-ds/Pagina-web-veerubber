@@ -1,0 +1,34 @@
+/* SECCION CITAS */
+
+.cita-container {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cita-container h1 {
+  color: #212529;
+  font-weight: bold;
+}
+
+.cita-form .form-control,
+.cita-form .form-select {
+  border-radius: 10px;
+}
+
+.cita-form .form-control:focus,
+.cita-form .form-select:focus {
+  border-color: #ffc107;
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.4);
+}
+
+.btn-warning {
+  padding: 12px 30px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-warning:hover {
+  transform: scale(1.05);
+}
