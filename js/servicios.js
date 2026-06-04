@@ -1,17 +1,10 @@
 function solicitarServicio(servicio) {
 
-  const nombre =
-    document.getElementById("nombreCliente").value;
-
-  const placa =
-    document.getElementById("placaMoto").value;
+  const nombre = document.getElementById("nombreCliente").value;
+  const placa = document.getElementById("placaMoto").value;
 
   if (nombre === "" || placa === "") {
-
-    alert(
-      "Debe ingresar el nombre y la placa de la motocicleta."
-    );
-
+    alert("Debes ingresar nombre y placa de la moto");
     return;
   }
 
@@ -21,19 +14,12 @@ function solicitarServicio(servicio) {
 
       <h4>Solicitud registrada correctamente</h4>
 
-      <p>
-        <strong>Cliente:</strong>
-        ${nombre}
-      </p>
+      <p><strong>Nombre:</strong> ${nombre}</p>
+      <p><strong>Placa:</strong> ${placa}</p>
 
       <p>
-        <strong>Placa:</strong>
-        ${placa}
-      </p>
-
-      <p>
-        <strong>Servicio:</strong>
-        ${servicio}
+        Servicio solicitado:
+        <strong>${servicio}</strong>
       </p>
 
       <p>
